@@ -1,0 +1,20 @@
+version: '3'
+services:
+  compil:
+    build:
+      context: ./compil
+      dockerfile: Dockerfile
+    volumes:
+      - "./vol_app/:/opt/app"
+
+  exec:
+    build:
+      context: ./exec
+      dockerfile: Dockerfile
+    volumes:
+      - "./vol_app/:opt/app"
+    ports:
+      - "8080:80"
+    depends_on:
+      - compil
+
