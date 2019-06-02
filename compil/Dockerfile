@@ -21,7 +21,7 @@ RUN wget https://github.com/opencv/opencv/archive/3.4.6.tar.gz
 
 RUN yum install -y java-1.8.0-openjdk-devel
 
-RUN yum install -y ant 
+RUN yum install -y ant
 
 RUN cd \
     && mkdir opencv && tar xvzf /3.4.6.tar.gz -C opencv --strip-components 1 \
@@ -48,6 +48,6 @@ RUN yum install -y maven \
 RUN mkdir -p /app_docker
 RUN chmod -R 777 /app_docker
 RUN cp -r /ESIRTPDockerSampleApp/target/ /app_docker/
-RUN cp -r /opencv/data/ /app_docker/opencv/data/
+RUN cp -r /opencv/ /app_docker/opencv/
 
 CMD ["/bin/bash"]
